@@ -215,11 +215,11 @@ const _MOONSHOTAI_KIMI_LATEST = {
   pricing: {
     text: {
       input: {
-        normal: 0.55,
-        cached: 0.11,
+        normal: 0.66,
+        cached: 0.14,
       },
       output: {
-        normal: 3.2,
+        normal: 3.41,
       },
     },
     image: 0,
@@ -1935,10 +1935,11 @@ const DEEPSEEK_DEEPSEEK_V4_FLASH = {
     ],
   },
   context_window: 1048576,
+  max_output_tokens: 16384,
   pricing: {
     text: {
       input: {
-        normal: 0.089,
+        normal: 0.09,
         cached: 0.018,
       },
       output: {
@@ -2761,6 +2762,7 @@ const GOOGLE_GEMMA_4_26B_A4B_IT_FREE = {
     output: ['text'],
     supports: [
       'frequencyPenalty',
+      'logprobs',
       'maxCompletionTokens',
       'presencePenalty',
       'reasoning',
@@ -2769,6 +2771,7 @@ const GOOGLE_GEMMA_4_26B_A4B_IT_FREE = {
       'stop',
       'temperature',
       'toolChoice',
+      'topLogprobs',
       'topP',
     ],
   },
@@ -4880,11 +4883,11 @@ const MOONSHOTAI_KIMI_K2_6 = {
   pricing: {
     text: {
       input: {
-        normal: 0.55,
-        cached: 0.11,
+        normal: 0.66,
+        cached: 0.14,
       },
       output: {
-        normal: 3.2,
+        normal: 3.41,
       },
     },
     image: 0,
@@ -5321,15 +5324,14 @@ const NVIDIA_NEMOTRON_3_SUPER_120B_A12B = {
     ],
   },
   context_window: 1000000,
-  max_output_tokens: 16384,
   pricing: {
     text: {
       input: {
-        normal: 0.085,
+        normal: 0.08,
         cached: 0,
       },
       output: {
-        normal: 0.4,
+        normal: 0.45,
       },
     },
     image: 0,
@@ -7130,6 +7132,7 @@ const OPENAI_GPT_OSS_20B_FREE = {
     output: ['text'],
     supports: [
       'frequencyPenalty',
+      'logprobs',
       'maxCompletionTokens',
       'presencePenalty',
       'reasoning',
@@ -7138,6 +7141,7 @@ const OPENAI_GPT_OSS_20B_FREE = {
       'stop',
       'temperature',
       'toolChoice',
+      'topLogprobs',
       'topP',
     ],
   },
@@ -7689,6 +7693,52 @@ const POOLSIDE_LAGUNA_M_1 = {
 const POOLSIDE_LAGUNA_M_1_FREE = {
   id: 'poolside/laguna-m.1:free',
   name: 'Poolside: Laguna M.1 (free)',
+  supports: {
+    input: ['text'],
+    output: ['text'],
+    supports: ['maxCompletionTokens', 'reasoning', 'temperature', 'toolChoice'],
+  },
+  context_window: 262144,
+  max_output_tokens: 32768,
+  pricing: {
+    text: {
+      input: {
+        normal: 0,
+        cached: 0,
+      },
+      output: {
+        normal: 0,
+      },
+    },
+    image: 0,
+  },
+} as const
+const POOLSIDE_LAGUNA_XS_2_1 = {
+  id: 'poolside/laguna-xs-2.1',
+  name: 'Poolside: Laguna XS 2.1',
+  supports: {
+    input: ['text'],
+    output: ['text'],
+    supports: ['maxCompletionTokens', 'reasoning', 'temperature', 'toolChoice'],
+  },
+  context_window: 262144,
+  max_output_tokens: 32768,
+  pricing: {
+    text: {
+      input: {
+        normal: 0.06,
+        cached: 0.03,
+      },
+      output: {
+        normal: 0.12,
+      },
+    },
+    image: 0,
+  },
+} as const
+const POOLSIDE_LAGUNA_XS_2_1_FREE = {
+  id: 'poolside/laguna-xs-2.1:free',
+  name: 'Poolside: Laguna XS 2.1 (free)',
   supports: {
     input: ['text'],
     output: ['text'],
@@ -8801,7 +8851,6 @@ const QWEN_QWEN3_VL_30B_A3B_THINKING = {
       'reasoning',
       'responseFormat',
       'seed',
-      'stop',
       'temperature',
       'toolChoice',
       'topLogprobs',
@@ -8882,11 +8931,11 @@ const QWEN_QWEN3_VL_8B_INSTRUCT = {
   pricing: {
     text: {
       input: {
-        normal: 0.08,
+        normal: 0.117,
         cached: 0,
       },
       output: {
-        normal: 0.5,
+        normal: 0.455,
       },
     },
     image: 0,
@@ -9238,7 +9287,7 @@ const QWEN_QWEN3_6_27B = {
     text: {
       input: {
         normal: 0.285,
-        cached: 0,
+        cached: 0.15,
       },
       output: {
         normal: 2.4,
@@ -10640,7 +10689,6 @@ const Z_AI_GLM_5_1 = {
       'logitBias',
       'logprobs',
       'maxCompletionTokens',
-      'parallelToolCalls',
       'presencePenalty',
       'reasoning',
       'responseFormat',
@@ -10653,14 +10701,15 @@ const Z_AI_GLM_5_1 = {
     ],
   },
   context_window: 202752,
+  max_output_tokens: 128000,
   pricing: {
     text: {
       input: {
-        normal: 0.975,
-        cached: 0,
+        normal: 0.966,
+        cached: 0.1794,
       },
       output: {
-        normal: 4.3,
+        normal: 3.036,
       },
     },
     image: 0,
@@ -10690,15 +10739,15 @@ const Z_AI_GLM_5_2 = {
     ],
   },
   context_window: 1048576,
-  max_output_tokens: 32768,
+  max_output_tokens: 131072,
   pricing: {
     text: {
       input: {
-        normal: 0.93,
-        cached: 0.18,
+        normal: 0.9086,
+        cached: 0.16874,
       },
       output: {
-        normal: 3,
+        normal: 2.8556,
       },
     },
     image: 0,
@@ -11745,6 +11794,7 @@ export type OpenRouterModelOptionsByName = {
     Pick<
       OpenRouterBaseOptions,
       | 'frequencyPenalty'
+      | 'logprobs'
       | 'maxCompletionTokens'
       | 'presencePenalty'
       | 'reasoning'
@@ -11753,6 +11803,7 @@ export type OpenRouterModelOptionsByName = {
       | 'stop'
       | 'temperature'
       | 'toolChoice'
+      | 'topLogprobs'
       | 'topP'
     >
   [GOOGLE_GEMMA_4_31B_IT.id]: OpenRouterCommonOptions &
@@ -13434,6 +13485,7 @@ export type OpenRouterModelOptionsByName = {
     Pick<
       OpenRouterBaseOptions,
       | 'frequencyPenalty'
+      | 'logprobs'
       | 'maxCompletionTokens'
       | 'presencePenalty'
       | 'reasoning'
@@ -13442,6 +13494,7 @@ export type OpenRouterModelOptionsByName = {
       | 'stop'
       | 'temperature'
       | 'toolChoice'
+      | 'topLogprobs'
       | 'topP'
     >
   [OPENAI_GPT_OSS_SAFEGUARD_20B.id]: OpenRouterCommonOptions &
@@ -13622,6 +13675,16 @@ export type OpenRouterModelOptionsByName = {
       'maxCompletionTokens' | 'reasoning' | 'temperature' | 'toolChoice'
     >
   [POOLSIDE_LAGUNA_M_1_FREE.id]: OpenRouterCommonOptions &
+    Pick<
+      OpenRouterBaseOptions,
+      'maxCompletionTokens' | 'reasoning' | 'temperature' | 'toolChoice'
+    >
+  [POOLSIDE_LAGUNA_XS_2_1.id]: OpenRouterCommonOptions &
+    Pick<
+      OpenRouterBaseOptions,
+      'maxCompletionTokens' | 'reasoning' | 'temperature' | 'toolChoice'
+    >
+  [POOLSIDE_LAGUNA_XS_2_1_FREE.id]: OpenRouterCommonOptions &
     Pick<
       OpenRouterBaseOptions,
       'maxCompletionTokens' | 'reasoning' | 'temperature' | 'toolChoice'
@@ -14080,7 +14143,6 @@ export type OpenRouterModelOptionsByName = {
       | 'reasoning'
       | 'responseFormat'
       | 'seed'
-      | 'stop'
       | 'temperature'
       | 'toolChoice'
       | 'topLogprobs'
@@ -14831,7 +14893,6 @@ export type OpenRouterModelOptionsByName = {
       | 'logitBias'
       | 'logprobs'
       | 'maxCompletionTokens'
-      | 'parallelToolCalls'
       | 'presencePenalty'
       | 'reasoning'
       | 'responseFormat'
@@ -15175,6 +15236,8 @@ export type OpenRouterModelInputModalitiesByName = {
   [PERPLEXITY_SONAR_REASONING_PRO.id]: ReadonlyArray<'text' | 'image'>
   [POOLSIDE_LAGUNA_M_1.id]: ReadonlyArray<'text'>
   [POOLSIDE_LAGUNA_M_1_FREE.id]: ReadonlyArray<'text'>
+  [POOLSIDE_LAGUNA_XS_2_1.id]: ReadonlyArray<'text'>
+  [POOLSIDE_LAGUNA_XS_2_1_FREE.id]: ReadonlyArray<'text'>
   [POOLSIDE_LAGUNA_XS_2.id]: ReadonlyArray<'text'>
   [POOLSIDE_LAGUNA_XS_2_FREE.id]: ReadonlyArray<'text'>
   [QWEN_QWEN_2_5_72B_INSTRUCT.id]: ReadonlyArray<'text'>
@@ -15512,6 +15575,8 @@ export const OPENROUTER_CHAT_MODELS = [
   PERPLEXITY_SONAR_REASONING_PRO.id,
   POOLSIDE_LAGUNA_M_1.id,
   POOLSIDE_LAGUNA_M_1_FREE.id,
+  POOLSIDE_LAGUNA_XS_2_1.id,
+  POOLSIDE_LAGUNA_XS_2_1_FREE.id,
   POOLSIDE_LAGUNA_XS_2.id,
   POOLSIDE_LAGUNA_XS_2_FREE.id,
   QWEN_QWEN_2_5_72B_INSTRUCT.id,
